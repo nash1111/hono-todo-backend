@@ -11,7 +11,7 @@ todoApiRoutes.get('/', async (c) => {
 
 // POST /todo
 todoApiRoutes.post('/', async (c) => {
-  const body = await c.req.parseBody()
+  const body = await c.req.json()
   const { title, userId } = body
   if (!title || !userId) {
     return c.json({ error: 'title and userId are required' }, 400)

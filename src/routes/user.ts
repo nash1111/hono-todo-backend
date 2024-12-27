@@ -5,7 +5,7 @@ export const userApiRoutes = new Hono()
 
 // POST /user
 userApiRoutes.post('/', async (c) => {
-  const body = await c.req.parseBody()
+  const body = await c.req.json()
   const { name, email, password } = body
   if (!name || !email || !password) {
     return c.json({ error: 'name, email, password are required' }, 400)
