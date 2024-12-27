@@ -1,6 +1,8 @@
 ```
-npm install
-npm run dev
+docker compose up -d
+bun install
+bun x prisma generate
+bun run dev
 ```
 
 ```
