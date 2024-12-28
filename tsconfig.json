@@ -11,6 +11,11 @@
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
     "allowImportingTsExtensions": true,
-    "noEmit": true
-  }
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "moduleResolution": "nodenext"
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules", "**/*.test.ts"]
 }
