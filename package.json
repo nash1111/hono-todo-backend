@@ -1,5 +1,5 @@
 {
-  "name": "hono-todo-backend",
+  "name": "@nash1111/hono-todo-backend",
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
