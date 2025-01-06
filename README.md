@@ -1,8 +1,9 @@
 ```
-docker compose up -d
-bun install
-bun x prisma generate
-bun run dev
+❯ cp .env.example .env
+❯ docker compose up -d
+❯ bun install
+❯ bun x prisma generate
+❯ bun run dev
 ```
 
 create user
