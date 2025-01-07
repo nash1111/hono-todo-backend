@@ -1,10 +1,8 @@
-import { Hono } from 'hono'
-import { prisma } from '../db.ts'
-
-export const userApiRoutes = new Hono()
+import { app } from '../index'
+import { prisma } from '../db'
 
 // POST /user
-userApiRoutes.post('/', async (c) => {
+export const userApiRoutes = app.post('/', async (c) => {
   const body = await c.req.json()
   const { name, email, password } = body
   if (!name || !email || !password) {
@@ -19,10 +17,7 @@ userApiRoutes.post('/', async (c) => {
     },
   })
   return c.json(newUser, 201)
-})
-
-// GET /user
-userApiRoutes.get('/', async (c) => {
+}).get('/', async (c) => {
   const users = await prisma.user.findMany()
   return c.json(users)
 })

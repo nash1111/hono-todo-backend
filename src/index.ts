@@ -1,9 +1,9 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
-import { userApiRoutes } from './routes/user.ts'
-import { todoApiRoutes } from './routes/todo.ts'
+import { userApiRoutes } from './routes/user'
+import { todoApiRoutes } from './routes/todo'
 
-const app = new Hono()
+export const app = new Hono()
 
 app.route('/user', userApiRoutes)
 
@@ -21,5 +21,5 @@ serve({
   port,
 })
 
-export type UserApiRoutes = typeof userApiRoutes
 export type TodoApiRoutes = typeof todoApiRoutes
+export type UserApiRoutes = typeof userApiRoutes
