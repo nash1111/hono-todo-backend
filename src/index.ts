@@ -3,18 +3,17 @@ import { Hono } from 'hono'
 import { userApiRoutes } from './routes/user'
 import { todoApiRoutes } from './routes/todo'
 
-export const app = new Hono()
-
-app.route('/user', userApiRoutes)
-
-app.route('/todo', todoApiRoutes)
+const app = new Hono()
 
 app.get('/', (c) => {
   return c.text('Hello Hono!')
 })
 
-const port = 3000
+const port = 3333
 console.log(`Server is running on http://localhost:${port}`)
+
+app.route('/',userApiRoutes)
+app.route('/', todoApiRoutes)
 
 serve({
   fetch: app.fetch,

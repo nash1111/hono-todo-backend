@@ -1,8 +1,10 @@
-import { app } from '../index'
+import { Hono } from 'hono'
 import { prisma } from '../db'
 
+const app = new Hono()
+
 // POST /user
-export const userApiRoutes = app.post('/', async (c) => {
+export const userApiRoutes = app.post('/user', async (c) => {
   const body = await c.req.json()
   const { name, email, password } = body
   if (!name || !email || !password) {
@@ -17,7 +19,7 @@ export const userApiRoutes = app.post('/', async (c) => {
     },
   })
   return c.json(newUser, 201)
-}).get('/', async (c) => {
+}).get('/user', async (c) => {
   const users = await prisma.user.findMany()
   return c.json(users)
 })

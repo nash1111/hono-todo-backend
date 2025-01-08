@@ -1,11 +1,14 @@
-import { app } from '../index'
 import { prisma } from '../db'
+import { Hono } from 'hono'
+
+const app = new Hono()
+
 
 // GET /todo
-export const todoApiRoutes = app.get('/', async (c) => {
+export const todoApiRoutes = app.get('/todo', async (c) => {
   const todos = await prisma.todo.findMany()
   return c.json(todos)
-}).post('/', async (c) => {
+}).post('/todo', async (c) => {
   const body = await c.req.json()
   const { title, userId } = body
   if (!title || !userId) {
