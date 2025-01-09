@@ -2,6 +2,7 @@
 ❯ cp .env.example .env
 ❯ docker compose up -d
 ❯ bun install
+❯ bun x prisma db push
 ❯ bun x prisma generate
 ❯ bun run dev
 ```
