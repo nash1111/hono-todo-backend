@@ -2,8 +2,11 @@ import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import { userApiRoutes } from './routes/user'
 import { todoApiRoutes } from './routes/todo'
+import { cors } from 'hono/cors'
 
 const app = new Hono()
+
+app.use('*', cors())
 
 app.get('/', (c) => {
   return c.text('Hello Hono!')
